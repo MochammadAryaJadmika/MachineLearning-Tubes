@@ -3,7 +3,7 @@ from flask import Flask, request, render_template
 import pickle
 
 app = Flask(__name__)
-model = pickle.load(open('model_baru_1.pkl', 'rb'))
+model = pickle.load(open('model_baru.pkl', 'rb'))
 
 @app.route('/')
 def home():
@@ -25,10 +25,10 @@ def predict():
 
     output = round(prediction[0], 2)
 
-    if output == 1:
-        out = 'Anda terkena Liver'
+    if output == 0:
+        out = str(output) + ' Anda terkena Liver'
     else:
-        out = 'Anda tidak terkena Liver'
+        out = str(output) + ' Anda tidak terkena Liver'
 
     return render_template('result_predict.html', prediction_text='{}'.format(out))
 
