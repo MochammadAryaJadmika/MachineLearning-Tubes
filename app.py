@@ -26,9 +26,9 @@ def predict():
     output = round(prediction[0], 2)
 
     if output == 0:
-        out = str(output) + ' Anda terkena Liver'
+        out = 'Anda terkena Liver'
     else:
-        out = str(output) + ' Anda tidak terkena Liver'
+        out = 'Anda tidak terkena Liver'
 
     return render_template('result_predict.html', prediction_text='{}'.format(out))
 
